@@ -45,7 +45,7 @@ namespace MiniBookApp.Migrations
 
                     b.HasIndex("AuteurId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
 
                     b.HasDiscriminator().HasValue("Post");
 
@@ -83,7 +83,7 @@ namespace MiniBookApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Utilisateurs");
+                    b.ToTable("Utilisateurs", (string)null);
 
                     b.HasDiscriminator().HasValue("Utilisateur");
 

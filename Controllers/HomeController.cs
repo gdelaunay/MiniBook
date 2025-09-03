@@ -1,21 +1,21 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MiniBookApp.Models;
 
 namespace MiniBookApp.Controllers;
 
-public class HomeController : Controller
+public class HomeController(ILogger<HomeController> logger, AppDbContext context) : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
+    private readonly ILogger<HomeController> _logger = logger;
+    private readonly AppDbContext _context = context;
 
     public IActionResult Index()
     {
-        return View();
+        var posts = _context.Posts
+                .Include(p => p.Auteur)
+                .ToList();
+        return View(posts);
     }
 
     public IActionResult Privacy()

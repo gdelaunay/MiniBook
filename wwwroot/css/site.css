@@ -29,3 +29,61 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+:root{
+  --background-color-blue: rgba(31, 78, 121, 0.80);
+  --background-color-blue-05: rgba(31, 78, 121, 0.5);
+  --background-color-blue-03: rgba(31, 78, 121, 0.35);
+  --background-color-blue-02: rgba(31, 78, 121, 0.25);
+  --background-color-blue-01: rgba(31, 78, 121, 0.10);
+
+  --background-color-grey: rgba(242, 242, 242, 0.3);
+}
+
+table {
+  all: unset;
+}
+
+/* ----- Tables ----- */
+.table-div{
+  width: 100%;
+  padding-bottom: 0.4rem;
+  overflow-x: auto;
+}
+
+table {
+  display: table;
+  margin-top: 0;
+  min-width: calc(100% - 4px);
+  overflow: hidden;
+  border: 1px solid var(--background-color-blue-05);
+  border-radius: 0.75rem;
+  scrollbar-width: none;
+  scrollbar-color: var(--background-color-grey) var(--background-color-blue-02);
+}
+
+td {
+  background-color: var(--background-color-blue-01);
+}
+
+th {
+  font-weight: 600;
+  text-align: center;
+  background-color: var(--background-color-blue-02);
+}
+
+td, th {
+  white-space: nowrap;
+  width: auto;
+  padding: 0.3rem 0.6rem;
+  border-right: 1px solid var(--background-color-blue-05);
+  border-top: 1px solid var(--background-color-blue-05);
+}
+
+tr:first-of-type > th, tr:first-of-type > td {
+  border-top: none !important;
+}
+
+td:last-of-type, #day-group-line>th:last-child, #datetime-line>th:last-child {
+  border-right: none !important;
+}

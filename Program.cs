@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Ajout du service BDD
-builder.Services.AddDbContext<AppDbContext>(options => options.UseMySQL(""));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySQL("Server=localhost;Port=3306;Database=MiniBook;User=myuserminibook;Password=mypasswordminibook;"));
 
 var app = builder.Build();
 

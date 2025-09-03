@@ -9,5 +9,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Administrateur> Administrateurs => Set<Administrateur>();
     public DbSet<Post> Posts => Set<Post>();
     public DbSet<Commentaire> Commentaires => Set<Commentaire>();
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Post>()
+            .HasQueryFilter(p => EF.Property<string>(p, "Discriminator") == "Post");
+    }
 
 }

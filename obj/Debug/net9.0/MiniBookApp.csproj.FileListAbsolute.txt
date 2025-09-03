@@ -17,7 +17,6 @@ C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\MiniBookApp
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\scopedcss\bundle\MiniBookApp.styles.css
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\scopedcss\projectbundle\MiniBookApp.bundle.scp.css
-C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\compressed\8k43ec8m2v-b9sayid5wm.gz
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\compressed\c2lk11oews-61n19gt1b8.gz
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\compressed\lnrhq2fs89-xtxxf3hu2r.gz
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\compressed\4ozfbssdbs-t1cqhe9u97.gz
@@ -206,3 +205,5 @@ C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\bin\Debug\net9.0\runtimes\wi
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\MiniBookApp.csproj.AssemblyReference.cache
 C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\MiniBook.AC98A097.Up2Date
+C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\MiniBookApp.sourcelink.json
+C:\Users\Goulwen\Documents\Dev\MiniBook\MiniBookApp\obj\Debug\net9.0\compressed\8k43ec8m2v-bie55xegn4.gz

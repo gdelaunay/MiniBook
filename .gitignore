@@ -11,3 +11,5 @@ riderModule.iml
 /SurfSessions-API/nginx/certs/*
 *.DotSettings.user
 README_*.md
+/obj/
+/bin/

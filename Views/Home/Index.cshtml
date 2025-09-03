@@ -1,6 +1,28 @@
-﻿@{
+﻿@model List<Post>
+@{
     ViewData["Title"] = "Home Page";
 }
+
+  <div class="table-div">
+      <table>
+          
+          <tr>
+              <th> Post </th>
+              <th> Date de publication </th>
+              <th> Auteur </th>
+          </tr>
+          
+          @foreach (var post in Model)
+          {
+              <tr>
+                  <td> @post.Contenu </td>
+                  <td> @post.DatePublication </td>
+                  <td> @post.Auteur.Nom @post.Auteur.Prénom </td>
+              </tr>
+          }
+
+      </table>
+  </div>
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
