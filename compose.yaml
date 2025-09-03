@@ -1,0 +1,37 @@
+﻿services:
+  
+  api:
+    build:
+      context: .
+    image: minibook-app
+    container_name: minibook-app
+    environment:
+      - MYSQL_CONNECTION_STRING=${MYSQL_CONNECTION_STRING}
+      - ASPNETCORE_URLS=http://+:5050
+    depends_on:
+      - mysql
+    ports:
+      - "5050:5050" 
+    networks:
+      - minibook-network
+  
+  mysql:
+    image: mysql:9.3.0
+    container_name: minibook-mysql
+    environment:
+      - MYSQL_DATABASE=MiniBook
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    networks:
+      - minibook-network
+    volumes:
+      - minibook-mysql-data:/var/lib/mysql
+
+volumes:
+  minibook-mysql-data:
+
+networks:
+  minibook-network:

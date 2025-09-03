@@ -1,0 +1,13 @@
+.idea/
+bin/
+obj/
+.sonarqube/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+*.env
+*.env.dist
+/SurfSessions-API/appsettings.json
+/SurfSessions-API/nginx/certs/*
+*.DotSettings.user
+README_*.md

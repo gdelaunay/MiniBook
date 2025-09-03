@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  api:
+    build:
+      context: "C:\\Users\\Goulwen\\Documents\\Dev\\MiniBook\\MiniBookApp"
+      dockerfile: "Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/MiniBookApp.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net9.0/MiniBookApp.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "minibook-app:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Goulwen\\Documents\\Dev\\MiniBook\\MiniBookApp:/app:rw"
+    - "C:\\Users\\Goulwen\\Documents\\Dev\\MiniBook\\MiniBookApp:/src:rw"
+    - "C:\\Users\\Goulwen\\.nuget\\packages:/root/.nuget/packages"
+    working_dir: "/app"
