@@ -9,14 +9,50 @@ public class HomeController(ILogger<HomeController> logger, AppDbContext context
 {
     private readonly ILogger<HomeController> _logger = logger;
     private readonly AppDbContext _context = context;
-
+    
+    public class ViewModel
+    {
+        public List<Post> Posts { get; set; } = [];
+        public Post? NewPost { get; set; }
+    }
+    
     public IActionResult Index()
     {
-        var posts = _context.Posts
-                .Include(p => p.Auteur)
-                .ToList();
-        return View(posts);
+        var vm = new ViewModel()
+        {
+            Posts = _context.Posts.OrderByDescending(p => p.DatePublication).Include(p => p.Auteur).ToList()
+        };
+        return View(vm);
     }
+    /*
+    [HttpPost]
+    public async Task<IActionResult> Index(ViewModel vm)
+    {
+        if (vm.NewPost != null)
+        {
+            vm.NewPost.DatePublication = DateTime.Now;
+            vm.NewPost.Auteur = _context.Utilisateurs.FirstOrDefault(u => u.Id == 1);
+            _context.Posts.Add(vm.NewPost);
+        }
+        Console.WriteLine(vm.ToString());
+        await _context.SaveChangesAsync();
+        return Index();
+    }
+
+    /*
+    [HttpPost]
+    public async Task<IActionResult> Index(ViewModel vm)
+    {
+        if (vm.NewPost != null)
+        {
+            vm.NewPost.DatePublication = DateTime.Now;
+            vm.NewPost.Auteur = _context.Utilisateurs.FirstOrDefault(u => u.Id == 1);
+            _context.Posts.Add(vm.NewPost);
+        }
+        Console.WriteLine(vm.ToString());
+        await _context.SaveChangesAsync();
+        return Index();
+    }*/
 
     public IActionResult Privacy()
     {
