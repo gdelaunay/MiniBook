@@ -1,0 +1,53 @@
+pipeline {
+  agent any
+
+  environment {
+    GH_APP_URL = 'https://github.com/gdelaunay/MiniBookApp.git'
+    APP_FOLDER = 'MiniBookApp'
+  }
+
+  stages {
+    
+    stage('Checkout des dépôts GitHub ... ') {
+        steps {
+            dir(APP_FOLDER) {
+                git url: "${GH_APP_URL}", branch: 'main'
+            }
+        }
+    }
+   
+    stage('Build ...') {
+      steps {
+        dir(APP_FOLDER) {
+          sh 'dotnet build'
+        }
+      }
+    }
+    
+    stage('Tests unitaires ...') {
+      steps {
+        dir(APP_FOLDER) {
+          sh 'dotnet test --no-build'
+        }
+      }
+    }
+
+    stage('Build et lancement ... ') {
+      steps {
+        sh '''
+          docker compose -f "${APP_FOLDER}/compose.yaml" up -d --build
+        '''
+      }
+    }
+  }
+    
+  post {
+    always {
+      echo "Pipeline terminée."
+    }
+    failure {
+      echo "Le pipeline a échoué (tests ou build)."
+    }
+  }
+      
+}

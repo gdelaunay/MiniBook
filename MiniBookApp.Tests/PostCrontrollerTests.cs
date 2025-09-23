@@ -6,7 +6,7 @@ using Xunit;
 
 namespace MiniBookApp.MiniBookApp.Tests;
 
-public class PostCrontrollerTests
+public class PostControllerTests
 {
     
     private static AppDbContext GetInMemoryDb()
@@ -27,6 +27,6 @@ public class PostCrontrollerTests
         var postController = new PostController(context);
         var result = await postController.Create(new Post{ Auteur = auteur, DatePublication = new DateTime(), Contenu = "Contenu du post"});
         
-        var created = Assert.IsType<CreatedResult>(result);
+        Assert.IsType<CreatedResult>(result);
     }
 }
