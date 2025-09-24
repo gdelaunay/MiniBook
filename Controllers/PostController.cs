@@ -35,7 +35,7 @@ public class PostController(AppDbContext context) : Controller
     //[ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Post post)
     {
-        // In html form →   @Html.AntiForgeryToken()
+        // In html form →   @Html.AntiForgeryToken()rrgr
         Console.WriteLine(post.Auteur);
         if (post != null)
         {
