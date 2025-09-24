@@ -17,7 +17,6 @@ builder.Services.AddScoped<IPasswordHasher<IdentityUser>, BCryptPasswordHasher<I
 // Ajout du service BDD
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("AZURE_CONNECTION_STRING")!));
 
-
     // Ajout d'une configuration Cors
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
 builder.Services.AddCors(options =>
