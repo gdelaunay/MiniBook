@@ -32,7 +32,7 @@ public class PostController(AppDbContext context) : Controller
 
     [HttpPost]
     //[Authorize]
-    [ValidateAntiForgeryToken]
+    //[ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Post post)
     {
         // in html form :   @Html.AntiForgeryToken()
@@ -40,7 +40,7 @@ public class PostController(AppDbContext context) : Controller
         if (post != null)
         {
             post.DatePublication = DateTime.Now;
-            post.Auteur = _context.Utilisateurs.FirstOrDefault(u => u.Id == 1);
+            post.Auteur = _context.Utilisateurs.FirstOrDefault();
             _context.Posts.Add(post);
         }
         await _context.SaveChangesAsync();

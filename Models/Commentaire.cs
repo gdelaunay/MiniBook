@@ -2,5 +2,6 @@
 
 public class Commentaire : Post
 {
-    public required Post PostParent { get; set; }
+    public int PostParentId { get; set; }      // FK explicite
+    public Post PostParent { get; set; } = null!;
 }

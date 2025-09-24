@@ -15,9 +15,8 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddRoles<IdentityRole>(
 builder.Services.AddScoped<IPasswordHasher<IdentityUser>, BCryptPasswordHasher<IdentityUser>>();
 
 // Ajout du service BDD
-builder.Services.AddDbContext<AppDbContext>(options => options.UseMySQL(Environment.GetEnvironmentVariable("MYSQLCONNSTR_localdb")!));
-    
-    //"Server=localhost;Port=3306;Database=MiniBook;User=myuserminibook;Password=mypasswordminibook;"));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("AZURE_CONNECTION_STRING")!));
+
 
     // Ajout d'une configuration Cors
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
@@ -144,6 +143,10 @@ identityGroup.MapGet("/account", async (UserManager<IdentityUser> userManager, H
     .RequireAuthorization();
 
 
+
+// migration
+using var scope2 = app.Services.CreateScope();
+AppDbService.MigrateIfNeeded(scope2.ServiceProvider, 3, 10);
 
 
 app.Run();

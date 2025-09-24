@@ -16,9 +16,18 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder); 
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Post>()
-            .HasQueryFilter(p => EF.Property<string>(p, "Discriminator") == "Post");
+            .HasDiscriminator<string>("Discriminator")
+            .HasValue<Post>("Post")
+            .HasValue<Commentaire>("Commentaire");
+        
+        modelBuilder.Entity<Commentaire>()
+            .HasOne(p => p.PostParent)
+            .WithMany()
+            .HasForeignKey(p => p.PostParentId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 
 }
